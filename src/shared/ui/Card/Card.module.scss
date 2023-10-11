@@ -1,0 +1,9 @@
+.Card {
+    padding: 15px;
+    border-radius: 12px;
+    cursor: pointer;
+    background: var(--card-bg);
+    &:hover {
+        outline: 1px solid var(--primary-color);    
+    }
+}

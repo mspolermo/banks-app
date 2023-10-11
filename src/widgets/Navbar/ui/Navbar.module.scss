@@ -1,0 +1,75 @@
+.Navbar {
+    position: fixed;
+    width: 100%;
+    height: var(--navbar-height);
+    background-color: var(--inverted-bg-color);
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 8px solid var(--inverted-secondary-color);
+}
+.btnsBlock {
+    width: 100%;
+    max-width: var(--maxWidth);
+    margin-left: auto;
+    margin-right: auto;
+    text-align: right;
+}
+.btn {
+    background-color: inherit;
+    font: var(--font-m);
+    transition: transform 0.4s ease;
+    &:first-child {
+        margin-right: 20px;
+    }
+    &:hover {
+        transform: scale(1.02);
+    }
+}
+.activeBtn {
+    color: var(--primary-color);
+    font-weight: 500;
+    position: relative;
+    &::after {
+        content: '';
+        position: absolute;
+        left: 1px;
+        bottom: -4px;
+        height: 3px;
+        width: 30px;
+        background-color: var(--inverted-primary-color);
+        border-radius: 5px;
+    }
+}
+.passiveBtn {
+    color: var(--secondary-color);
+    transition: color 0.2s ease; 
+    &:hover {
+        color: var(--primary-color);
+    }
+    &:active {
+        color: var(--inverted-primary-color);
+    }
+}
+
+@media (max-width: 600px) {
+    .btnsBlock {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+    .btn {
+        &:first-child {
+            margin-right: 0;
+        }
+    }
+}
+
+@media (max-width: 370px) {
+    .btnsBlock {
+        justify-content: space-between;
+    }
+    .btn {
+        font: var(--font-s);
+    }
+}

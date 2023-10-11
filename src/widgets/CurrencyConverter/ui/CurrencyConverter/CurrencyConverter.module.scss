@@ -1,0 +1,41 @@
+.CurrencyConverter {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.input {
+    min-width: 400px;
+}
+.selectsBlock {
+    min-width: 400px;
+    display: flex;
+    justify-content: space-around;
+}
+.select {
+    margin-top: 20px;
+    font: var(--font-m);
+}
+
+.block {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.text {
+    font: var(--font-m);
+    margin-bottom: 10px;
+}
+
+.value {
+    font: var(--font-l);
+    font-weight: 900;
+    color: var(--inverted-primary-color);
+}
+
+@media (max-width: 440px) {
+    .input {
+        min-width: 200px;
+    }
+}

@@ -1,0 +1,8 @@
+@import "reset";
+@import "fonts";
+@import "variables/global";
+
+:root {
+    font: var(--font-m);
+    background-color: var(--bg-color);
+}

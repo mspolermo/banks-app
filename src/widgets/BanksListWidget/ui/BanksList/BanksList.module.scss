@@ -1,0 +1,10 @@
+.BanksList {
+    &__list {
+        margin-top: 10px;
+    }
+    &__item {
+        display: flex;
+        margin-bottom: 10px;
+        justify-content: space-evenly;
+    }
+}
