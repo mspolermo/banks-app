@@ -45,7 +45,7 @@ export const BanksListWidget = memo((props: BanksListWidgetProps) => {
     return (
         <div className={classNames(cls.BanksListWidget, {}, [className])}>
             <h2 className={cls.title}>
-                Список голвных банковских отделений:
+                Список основных банковских отделений:
             </h2>
             <div className={cls.selectsBlock}>
                 <Select
