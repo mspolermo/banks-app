@@ -50,7 +50,7 @@ export const BankById = memo((props: BankByIdProps) => {
                     {bank?.id}
                 </div>
                 <div>
-                    <h2 className={cls.heading}>ПАО "{bank?.name}" </h2>
+                    <h2 className={cls.heading}>ПАО «{bank?.name}» </h2>
                     <p className={cls.description}>
                         <span className={cls.bold}>Описание: </span>
                         <span className={cls.text}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium et, inventore aperiam mollitia fugiat eos. Doloremque iusto excepturi quidem! Inventore, id unde. Dolorem, sed molestiae quasi magni omnis ipsam? Consequatur?
