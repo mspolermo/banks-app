@@ -1,10 +1,30 @@
 .BanksList {
-    &__list {
-        margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.BanksTilles {
+    width: 85%;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.item {
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: space-evenly;
+}
+
+@media (max-width: 1100px) {
+    .BanksTilles {
+        grid-template-columns: 1fr 1fr;
     }
-    &__item {
-        display: flex;
-        margin-bottom: 10px;
-        justify-content: space-evenly;
+}
+
+@media (max-width: 800px) {
+    .BanksTilles {
+        grid-template-columns: 1fr;
     }
 }

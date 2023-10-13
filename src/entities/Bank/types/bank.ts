@@ -4,3 +4,9 @@ export interface Bank {
     address: string;
     distanceFromUser: number;
 }
+
+export enum BankCardView {
+    BIG = 'BIG',
+    SMALL = 'SMALL',
+    TILED = 'TILED',
+}

@@ -1,36 +1,51 @@
-import { memo, useEffect } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { errorBanks, fetchBanks, getBanks, loadingBanks } from '@/features/fetchBanks';
-import { BankSkeletonCard } from '@/entities/Bank';
+import { BankItem, BankItemSceleton, BankCardView } from '@/entities/Bank';
 import { ErrorComponent } from '@/shared/ui/ErrorComponent/ErrorComponent';
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { BanksItem } from '../BanksItem/BanksItem';
 import cls from './BanksList.module.scss';
+import { ViewTypes, getView } from '@/entities/View';
 
-interface BanksListProps {
-    className? : string;
-}
-
-export const BanksList = memo((props: BanksListProps) => {
-    const { className } = props;
+export const BanksList = memo(() => {
     const dispatch = useAppDispatch();
     const banks = useSelector(getBanks);
     const isLoading = useSelector(loadingBanks);
     const error = useSelector(errorBanks);
 
+    const view = useSelector(getView);
+    const [cardView, setCardView] = useState<BankCardView>(BankCardView.SMALL);
+
     useEffect(() => {
         dispatch(fetchBanks({sort: 'id', direction: 'asc'}));
     }, [dispatch]);
 
+    useEffect(() => {
+        if (view === ViewTypes.LIST) {
+            setCardView(BankCardView.SMALL)
+        } else if ( view === ViewTypes.TILED) {
+            setCardView(BankCardView.TILED)
+        }
+    }, [view])
+
+
     if (isLoading) {
-        const skeletonElements = Array(7).fill(null);
+        const skeletonElements = Array(9).fill(null);
 
         return (
-            <ul className={classNames(cls.BanksList, {}, [className])}>
+            <ul className={view === ViewTypes.LIST
+                ? cls.BanksList
+                : cls.BanksTilles
+            }>
                 {skeletonElements.map((_, index) => (
-                    <li className={cls.BanksList__item} key={index}>
-                        <BankSkeletonCard />    
+                    <li
+                        key={index}
+                        className={view === ViewTypes.LIST
+                            ? cls.item
+                            : cls.tile
+                        }
+                    >
+                        <BankItemSceleton view={cardView} />    
                     </li>
                 ))}
             </ul>
@@ -44,14 +59,24 @@ export const BanksList = memo((props: BanksListProps) => {
     }
 
     return (
-        <ul className={classNames(cls.BanksList, {}, [className])}>
+        <ul className={view === ViewTypes.LIST
+            ? cls.BanksList
+            : cls.BanksTilles
+        }>
             {banks?.map((bank) => (
-                <li className={cls.BanksList__item} key={bank.id}>
-                    <BanksItem 
+                <li
+                    key={bank.id}
+                    className={view === ViewTypes.LIST
+                        ? cls.item
+                        : cls.tile
+                    }
+                >
+                    <BankItem 
                         id={bank.id}
                         name={bank.name}
                         address={bank.address}
                         distanceFromUser={bank.distanceFromUser}
+                        view={cardView}
                     />
                 </li>
             ))}

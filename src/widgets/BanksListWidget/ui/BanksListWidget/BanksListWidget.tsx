@@ -1,5 +1,6 @@
 import { memo, useEffect, useState } from 'react';
 import { DirectionType, SoringTypes, fetchBanks } from '@/features/fetchBanks';
+import { ViewChanger } from '@/entities/View';
 import { Select, SelectOptions } from '@/shared/ui/Select/Select';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -63,6 +64,7 @@ export const BanksListWidget = memo((props: BanksListWidgetProps) => {
                     className={cls.select}
                 />
             </div>
+            <ViewChanger />
             <BanksList />
         </div>
     );

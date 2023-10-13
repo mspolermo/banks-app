@@ -8,6 +8,7 @@ import { Loader } from '@/shared/ui/Loader/Loader';
 import { ErrorComponent } from '@/shared/ui/ErrorComponent/ErrorComponent';
 import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import cls from './BankById.module.scss';
+import { BankItem } from '@/entities/Bank';
 
 interface BankByIdProps {
     className? : string;
@@ -45,20 +46,17 @@ export const BankById = memo((props: BankByIdProps) => {
 
     return (
         <div className={classNames(cls.BankById, {}, [className])}>
-            <div className={cls.top}>
-                <div className={cls.ava}>
-                    {bank?.id}
-                </div>
-                <div>
-                    <h2 className={cls.heading}>ПАО «{bank?.name}» </h2>
-                    <p className={cls.description}>
-                        <span className={cls.bold}>Описание: </span>
-                        <span className={cls.text}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium et, inventore aperiam mollitia fugiat eos. Doloremque iusto excepturi quidem! Inventore, id unde. Dolorem, sed molestiae quasi magni omnis ipsam? Consequatur?
-                        Perferendis eos amet odio error reiciendis voluptatem doloremque perspiciatis. Harum perferendis dolor aliquam sint! Inventore, molestias a, architecto, obcaecati temporibus rem cupiditate quae nihil ipsam officia rerum similique voluptatibus modi!</span>
-                    </p>
-
-                </div>
-            </div>
+            {bank && <BankItem 
+                id={bank.id}
+                name={bank.name}
+                address={bank.address}
+                distanceFromUser={bank.distanceFromUser}
+            />}
+            <p className={cls.description}>
+                <span className={cls.bold}>Описание: </span>
+                <span className={cls.text}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium et, inventore aperiam mollitia fugiat eos. Doloremque iusto excepturi quidem! Inventore, id unde. Dolorem, sed molestiae quasi magni omnis ipsam? Consequatur?
+                Perferendis eos amet odio error reiciendis voluptatem doloremque perspiciatis. Harum perferendis dolor aliquam sint! Inventore, molestias a, architecto, obcaecati temporibus rem cupiditate quae nihil ipsam officia rerum similique voluptatibus modi!</span>
+            </p>
             <div className={cls.body}>
                 <h3 className={cls.smallHeading}>Режим работы:</h3>
                 <div className={cls.work}>
@@ -85,14 +83,6 @@ export const BankById = memo((props: BankByIdProps) => {
                             </p>
                         </div>
                 </div>
-                <p className={cls.textBlock}>
-                    <span className={cls.bold}>Адрес: </span>
-                    <span className={cls.text}>г. Екатеринбург, ул. {bank?.address}</span>
-                </p>
-                <p className={cls.textBlock}>
-                    <span className={cls.bold}>Телефон: </span>
-                    <span className={cls.text}>(343) 377-66-55</span>
-                </p>
             </div>
         </div>
     );

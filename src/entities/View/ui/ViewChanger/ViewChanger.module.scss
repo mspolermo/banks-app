@@ -1,0 +1,22 @@
+.ViewChanger {
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 16px;
+}
+.btn {
+    cursor: pointer;
+}
+.icon {
+    fill: var(--primary-color);
+    stroke: var(--primary-color);
+    stroke-width: 0;
+}
+.iconActive {
+    fill: var(--inverted-primary-color);
+    stroke: var(--inverted-primary-color);
+    stroke-width: 0;
+}

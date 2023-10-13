@@ -1,0 +1,55 @@
+.SMALL {
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: center;
+    &:hover {
+        cursor: default;
+        outline: none;
+    }
+
+    &__first {
+        display: flex;
+        align-items: center;
+    }
+
+    &__ava {
+        //для перебивания inline-стилей скелетона
+        width: 55px !important;
+        height: 55px !important;
+        margin-right: 20px;
+        border-radius: 100%;
+    }
+    &__text {
+        margin-bottom: 6px;
+    }
+}
+
+.TILE {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    &__text{
+        margin-bottom: 7px;
+    }
+    &__ava {
+        //для перебивания inline-стилей скелетона
+        width: 200px !important;
+        height: 200px !important;
+    }
+    &__title{
+        margin: 10px;
+    }
+}
+
+@media (max-width: 760px) {
+    .SMALL {
+        width: 95%;
+        gap: 15px;
+    }
+}

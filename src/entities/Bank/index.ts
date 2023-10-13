@@ -1,2 +1,4 @@
 export type { Bank } from './types/bank';
-export { BankSkeletonCard } from './ui/BankSkeletonCard/BankSkeletonCard';
+export { BankCardView } from './types/bank';
+export { BankItemSceleton } from './ui/BankItemSceleton/BankItemSceleton';
+export { BankItem } from './ui/BankItem/BankItem';
